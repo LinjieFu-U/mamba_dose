@@ -215,25 +215,6 @@ def train():
 
                         img = data[0][0]
                         img = img.data.squeeze().cpu()
-                        # imgs = img.numpy()
-                        # # if(kk==4):
-                        # #     imgs=imgs*(3071+1000)-1000
-                        # #     itk_image = sitk.GetImageFromArray(imgs)
-                        # #     sitk.WriteImage(itk_image, os.path.join(r'D:\test\syncbct',str(cbct_path[0].split('.')[0])+'.nii.gz'))
-                        #
-                        # # 估计图像的最小值和最大值
-                        # min_val = np.min(imgs)
-                        # max_val = np.max(imgs)
-                        #
-                        # # 将数据从 [min_val, max_val] 缩放到 [0, 255]
-                        # scaled_img = (imgs - min_val) / (max_val - min_val) * 255
-                        #
-                        # # 将图像转换为 uint8 类型
-                        # uint8_img = np.clip(scaled_img, 0, 255).astype(np.uint8)
-                        # if(kk==4):
-                        #     imgs=imgs*(3071+1000)-1000
-                        #     itk_image = sitk.GetImageFromArray(imgs)
-                        #     sitk.WriteImage(itk_image, os.path.join(r'D:\test\syncbct',str(cbct_path[0].split('.')[0])+'.nii.gz'))
 
                         # 估计图像的最小值和最大值
                         ax = fig.add_subplot(spec[0])
@@ -248,21 +229,6 @@ def train():
                         for kk in range(5):  # x_0 [5,b,1,h,w]
                             imgs = x_0[kk]  # imgs [b,1,h,w]
                             img = imgs[0].data.squeeze().cpu()
-                            # imgs = img.numpy()
-                            # # if(kk==4):
-                            # #     imgs=imgs*(3071+1000)-1000
-                            # #     itk_image = sitk.GetImageFromArray(imgs)
-                            # #     sitk.WriteImage(itk_image, os.path.join(r'D:\test\syncbct',str(cbct_path[0].split('.')[0])+'.nii.gz'))
-                            #
-                            # # 估计图像的最小值和最大值
-                            # min_val = np.min(imgs)
-                            # max_val = np.max(imgs)
-                            #
-                            # # 将数据从 [min_val, max_val] 缩放到 [0, 255]
-                            # scaled_img = (imgs - min_val) / (max_val - min_val) * 255
-                            #
-                            # # 将图像转换为 uint8 类型
-                            # uint8_img = np.clip(scaled_img, 0, 255).astype(np.uint8)
 
                             ax = fig.add_subplot(spec[count])
                             ax.imshow(img, cmap="gray", vmin=0, vmax=1)
@@ -277,28 +243,9 @@ def train():
                             count += 1
 
                         img = target[0].data.squeeze().cpu()
-                        # imgs = img.numpy()
-                        # # if(kk==4):
-                        # #     imgs=imgs*(3071+1000)-1000
-                        # #     itk_image = sitk.GetImageFromArray(imgs)
-                        # #     sitk.WriteImage(itk_image, os.path.join(r'D:\test\syncbct',str(cbct_path[0].split('.')[0])+'.nii.gz'))
-                        #
-                        # # 估计图像的最小值和最大值
-                        # min_val = np.min(imgs)
-                        # max_val = np.max(imgs)
-                        #
-                        # # 将数据从 [min_val, max_val] 缩放到 [0, 255]
-                        # scaled_img = (imgs - min_val) / (max_val - min_val) * 255
-                        #
-                        # # 将图像转换为 uint8 类型
-                        # uint8_img = np.clip(scaled_img, 0, 255).astype(np.uint8)
                         ax = fig.add_subplot(spec[6])
                         ax.imshow(img, cmap="gray", vmin=0, vmax=1)
                         ax.axis("off")
-                        # img = target[1].data.squeeze().cpu()
-                        # ax = fig.add_subplot(spec[13])
-                        # ax.imshow(img, cmap='gray', vmin=0,vmax=1)
-                        # ax.axis('off')
                         if not os.path.exists(
                             "./Train_Output/"
                             + FLAGS.DIREC
@@ -449,10 +396,6 @@ def test():
             for kk in range(len(x_0)):  # x_0 [10,b,1,h,w]
                 imgs = x_0[kk].data.squeeze().cpu()  # imgs [b,h,w]
                 imgs = imgs.numpy()
-                # if(kk==4):
-                #     imgs=imgs*(3071+1000)-1000
-                #     itk_image = sitk.GetImageFromArray(imgs)
-                #     sitk.WriteImage(itk_image, os.path.join(r'D:\test\syncbct',str(cbct_path[0].split('.')[0])+'.nii.gz'))
 
                 # 估计图像的最小值和最大值
                 min_val = np.min(imgs)
@@ -489,15 +432,6 @@ def test():
 
                 if kk == 4:
                     try:
-                        # image=sitk.ReadImage(cbct_path[0])
-                        #
-                        # uint_img = sitk.GetImageFromArray(scaled_img)
-                        # uint_img.SetSpacing(image.GetSpacing())
-                        # uint_img.SetOrigin(image.GetOrigin())
-                        # uint_img.SetDirection(image.GetDirection())
-                        # sitk.WriteImage(uint_img,
-                        #                 './Test_Output/' + FLAGS.DIREC + '/' + 'syl-all-image' + '/' + str(
-                        #                     ct_path[0]))
                         pil_img.save(
                             "./Test_Output/"
                             + FLAGS.DIREC
