@@ -15,26 +15,14 @@ class MyDataset(data.Dataset):
                              'test': r'/mnt/d/ddpm-dose/dosenewdata/test'}[phase]
         self.list_datapath = []
 
-        # path=self.list_case_id
-        # list_fn = pathlib.Path(path + '/slice_image/').glob("*_CBCT.npy")
-        # for fn in list_fn:
-        #     n_slice = str(fn).split('/')[-1][0:-9]
-        #     imagepath = n_slice + '_CBCT.npy'
-        #     dosepath = n_slice + '_CT.npy'
-        #     self.list_datapath.append([imagepath, dosepath])
         for case_id in os.listdir(self.list_case_id):
             path=os.path.join(self.list_case_id,case_id)
             list_fn = pathlib.Path(path + '/slice_image/').glob("*_structure_image.npy")
             for fn in list_fn:
-                # print(fn)
-                # # n_slice = str(fn).split('/')[-1][0:-9]
-                # n_slice = str(fn)[0:-7]
-                # print(n_slice)
                 dir_path, file_name = os.path.split(fn)
                 base_name = os.path.splitext(file_name)[0]
                 base_name = base_name.replace('_structure_image', '')
                 n_slice = os.path.join(dir_path, base_name)
-                # print(n_slice)
 
                 imagepath = n_slice + '_structure_image.npy'
                 dosepath = n_slice + '_dose.npy'
