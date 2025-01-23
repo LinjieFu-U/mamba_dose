@@ -1,6 +1,6 @@
 <div align="center">
 <h1>MD-Dose </h1>
-This is the codebase for [MD-Dose: A Diffusion Model based on the Mamba for Radiotherapy Dose Prediction](https://arxiv.org/abs/2403.08479).
+This is the codebase for [MD-Dose: A diffusion model based on the Mamba for radiation dose prediction](https://ieeexplore.ieee.org/abstract/document/10822581).
 </div>
 
 ## Envs. for Pretraining
@@ -30,12 +30,14 @@ This project is based on Vim ([paper](https://arxiv.org/abs/2401.09417), [code](
 If you find MD-Dose is useful in your research or applications, please consider giving us a star 🌟 and citing it by the following BibTeX entry.
 
 ```bibtex
-@misc{fu2024mddose,
-      title={MD-Dose: A Diffusion Model based on the Mamba for Radiotherapy Dose Prediction}, 
-      author={Linjie Fu and Xia Li and Xiuding Cai and Yingkai Wang and Xueyao Wang and Yali Shen and Yu Yao},
-      year={2024},
-      eprint={2403.08479},
-      archivePrefix={arXiv},
-      primaryClass={eess.IV}
-}
+@INPROCEEDINGS{10822581,
+  author={Fu, Linjie and Li, Xia and Cai, Xiuding and Wang, Xueyao and Shen, Yali and Yao, Yu},
+  booktitle={2024 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)}, 
+  title={MD-Dose: A diffusion model based on the Mamba for radiation dose prediction}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={911-918},
+  keywords={Noise reduction;Medical services;Predictive models;Diffusion models;Transformers;Radiation therapy;Planning;Data mining;Cancer;Tumors;Dose Prediction;Mamba;Diffusion Model;Thoracic Cancer},
+  doi={10.1109/BIBM62325.2024.10822581}}
 ```
